@@ -13,8 +13,8 @@ notebooks/data
 es/stories
 lib/stories
 notebooks/test-data
-lib
 es
+/lib
 demo/dist
 widget/genx/static
 widget/js/dist
