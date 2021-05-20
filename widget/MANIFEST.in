@@ -1,0 +1,2 @@
+recursive-include genx/static *.*
+include genx-widget.json

@@ -1,0 +1,117 @@
+@import url('http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext');
+
+.strCompMatch {
+  line-height: 2;
+  color: red;
+}
+.strCompDiff {
+  line-height: 2;
+  color: black;
+}
+
+.levMatch1{
+  line-height: 2;
+  padding-bottom: 1px;
+  border-bottom: 4px solid black;
+}
+
+.levPartMatch1{
+  line-height: 2;
+  padding-bottom: 3px;
+  border-bottom: 1px solid black;
+}
+
+.levNoMatch1{
+  line-height: 2;
+  color: black;
+}
+
+.origText {
+  display: inline;
+}
+
+.colorSelectedText {
+  display: inline;
+  border-style: hidden;
+  background-color: #FFDAA0;
+
+}
+
+.colorHoveredText {
+  display:inline;
+  border-style: hidden;
+  background-color: #FEFFAD;
+  visibility: visible;
+
+}
+.bar {
+  display: inline-block;
+  border-width: 0.1mm;
+  border-style: solid;
+  border-color: white;
+  /* background-color: #42a5f5; */
+  background-color: gray;
+  width: 9px;
+  max-height: inherit;
+  min-height: 1px;
+
+}
+
+.bar:hover {
+  display: inline-block;
+  border-width: 0.1mm;
+  border-style: solid;
+  border-color: gray;
+  background-color: gray;
+  width: 9px;
+  max-height: inherit;
+  min-height: 1px;
+}
+
+.myButton{
+  width:100%;
+}
+
+.visitedButton{
+  width:100%;
+  color:gray;
+}
+.marked {
+  width: 98%;
+  padding: 5px;
+  background-color: tomato;
+}
+.preview {
+  width: 98%;
+  padding: 5px;
+  overflow-x: hidden;
+}
+
+.previewContainer {
+  display:flex;
+  flex-direction: column;
+  padding: 5px;
+  height: 50vh;
+  width: 99.4%;
+  /* width: 29.5vw; */
+  overflow-y: auto;
+}
+.uuid {
+  padding-left: 10px;
+  font-size: 14px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+.chartWord {
+  padding: 2px;
+  margin-right: 5px;
+  border-color: white;
+  border-width: 1.5px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: flex-end;
+  width:70px;
+  height: 25px;
+  position: relative;
+  top: 5px;
+  max-height: 95%;
+}

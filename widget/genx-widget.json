@@ -1,0 +1,5 @@
+{
+  "load_extensions": {
+    "genx-widget/extension": true
+  }
+}
