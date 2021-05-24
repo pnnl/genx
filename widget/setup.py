@@ -125,7 +125,7 @@ with open(os.path.join(here, 'genx', '_version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 setup_args = {
-    'name': 'genx',
+    'name': 'genx-widget',
     'version': version_ns['__version__'],
     'description': 'Text Generation Explanation',
     'long_description': LONG_DESCRIPTION,
