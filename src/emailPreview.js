@@ -11,7 +11,6 @@ const EmailPreview = ({ uuid, allTestUuid, testData, testStrIdx, sendUuid, fav, 
   const [button, setButton] = React.useState(false);
   const [clicked, setClicked] = React.useState({});
 
-
   const handleClick = (id) => {
     setClicked({...clicked, [id]:true });
     setButton(true);
@@ -19,16 +18,37 @@ const EmailPreview = ({ uuid, allTestUuid, testData, testStrIdx, sendUuid, fav, 
   }
 
   const previewArr = temp.slice(0, 50);
+
   return(
     <div className={fav ? "marked": "preview"}>
       <button className={(clicked[uuid] || visited) ? "visitedButton": "myButton"} onClick={() => handleClick(uuid)}>
-
         <div style={{textAlign: 'left', padding: '5px'}}>
-          {/*{temp.slice(0,50).join(" ")}*/}
-          {previewArr.map((word, i) =>
-          <span key={i} style={{backgroundColor: highlightWord && keywords.includes(word) ? '#f5ea92' : null}}>
-            {word}{"\n"}
-          </span>)}
+          {previewArr.map((word, i) => {
+            if (highlightWord) {
+              if(keywords.some(w => word.includes(w))){
+                return(
+                  <span key={i} style={{backgroundColor: '#f5ea92'}}>
+                    {word}{"\n"}
+                  </span>
+                )
+              }
+              else{
+                return(
+                  <span key={i}>
+                    {word}{"\n"}
+                  </span>
+                )
+              }
+            } else {
+              return (
+                <span key={i}>
+                  {word}{"\n"}
+                </span>)
+            }
+          })
+              }
+            }
+          }
         </div>
       </button>
 

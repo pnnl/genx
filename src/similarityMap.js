@@ -69,7 +69,8 @@ export function SimilarityMap({ train, test, stats={}, uuid = 'email_uuid'}){
 
   const [clickedEmail, setClickedEmail] = React.useState(null);
   const getClickedPreview = value => {
-    setClickedEmail(points.indexOf(value));
+    const ptsToUse = filteredPoints.length === 0 ? points : filteredPoints
+    setClickedEmail(ptsToUse.indexOf(value));
   }
 
   const [selectedFavs, setFav] = React.useState([]);
@@ -124,11 +125,15 @@ export function SimilarityMap({ train, test, stats={}, uuid = 'email_uuid'}){
     if(type === 'keyword'){
       pointsToUse.map((uuid, i) => {
         const indices = getIdx(uuid, allUuid);
-        const emailArr = indices.map(ind => getTestFromIdx(test.data, 0, ind).split(" ")).flat();
-        const findKeyword = keywordArr.map(word => emailArr.indexOf(word));
-        if(findKeyword[keywordArr.length -1] - findKeyword[0] === keywordArr.length -1 && !findKeyword.includes(-1)){
-          filteredUuid.push(uuid);
+        // const emailArr = indices.map(ind => getTestFromIdx(test.data, 0, ind).split(" ")).flat();
+        const fullEmail = indices.map(ind => getTestFromIdx(test.data, 0, ind)).join(" ");
+        const newKeywordFind = keywordArr.map(word => fullEmail.indexOf(word));
+        // console.log(keywordArr.map(word => fullEmail.match(word)));
+        if(!newKeywordFind.includes(-1)){
+          filteredUuid.push(uuid)
+          // console.log(uuid)
         }
+
       })
     }
     else{
@@ -142,7 +147,6 @@ export function SimilarityMap({ train, test, stats={}, uuid = 'email_uuid'}){
     setFilteredPoints(filteredUuid);
     // setPoints(filteredUuid);
   }
-
 
   return(
     <div className={classes.root}>
@@ -235,7 +239,7 @@ export function SimilarityMap({ train, test, stats={}, uuid = 'email_uuid'}){
               <Paper>
                   <AppBar style={{ backgroundColor:"white", color:"black" }} position="static">
                     <Tabs value={value} onChange={handleChange} variant="fullWidth">
-                      <Tab label={filteredPoints.length !== 0 ? "Filtered emails" : "All emails"} />
+                      <Tab label={filteredPoints.length !== 0 ? "Filtered documents" : "All documents"} />
                       <Tab label="Favorites" />
                     </Tabs>
                   </AppBar>
