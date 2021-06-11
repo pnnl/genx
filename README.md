@@ -16,3 +16,12 @@ Current methods for evaluation of natural language generation models focus on me
 
 ## Usage
 See the [demo notebook](notebooks/Demo.ipynb)
+
+# How to cite
+```
+@inproceedings{duskin2021genx,
+  title={Evaluating and Explaining Natural Language Generation with GenX},
+  author={Duskin, Kayla and Sharma, Shivam and Yun, Ji Young and Arendt, Dustin},
+  booktitle={Proceedings of the Second Workshop on Data Science with Human in the Loop: Language Advances},
+  year={2021}
+}
